@@ -1002,6 +1002,7 @@ POPUP_TITLES = {
     "filter": "Custom Filter",
     "upload": "Load Data",
     "pps": "Predictive Power Score",
+    "merge": "Merge, Join & Concatenate",
 }
 
 
@@ -1018,7 +1019,7 @@ def view_popup(popup_type, data_id=None):
     :type data_id: str
     :return: HTML
     """
-    if data_id is None and popup_type != "upload":
+    if data_id is None and popup_type not in ["upload", "merge"]:
         return redirect("/dtale/{}".format(head_endpoint(popup_type)))
     curr_metadata = global_state.get_metadata(data_id) or {}
     title = "D-Tale"
@@ -1098,6 +1099,8 @@ def get_processes():
     }
     """
 
+    load_dtypes = get_bool_arg(request, "dtypes")
+
     def _load_process(data_id):
         data = global_state.get_data(data_id)
         dtypes = global_state.get_dtypes(data_id)
@@ -1106,7 +1109,7 @@ def get_processes():
             data_id=data_id,
             rows=len(data),
             columns=len(dtypes),
-            names=",".join([c["name"] for c in dtypes]),
+            names=dtypes if load_dtypes else ",".join([c["name"] for c in dtypes]),
             start=json_date(mdata["start"], fmt="%-I:%M:%S %p"),
             ts=json_timestamp(mdata["start"]),
             name=mdata["name"],
