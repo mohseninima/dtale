@@ -14,7 +14,7 @@ class UploadOption extends React.Component {
         <span className="toggler-action">
           <button className="btn btn-plain" onClick={this.props.open}>
             <i className="fas fa-object-group pl-3 pr-3" />
-            <span className="font-weight-bold">Merge, Join, Concat</span>
+            <span className="font-weight-bold">Merge & Stack</span>
           </button>
         </span>
         <div className="hoverable__content menu-description">{Descriptions.merge}</div>

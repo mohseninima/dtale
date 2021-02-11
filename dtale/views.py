@@ -1002,7 +1002,7 @@ POPUP_TITLES = {
     "filter": "Custom Filter",
     "upload": "Load Data",
     "pps": "Predictive Power Score",
-    "merge": "Merge, Join & Concatenate",
+    "merge": "Merge & Stack",
 }
 
 

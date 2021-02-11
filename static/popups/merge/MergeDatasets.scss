@@ -74,3 +74,20 @@
 .Select-menu-outer {
     z-index: 7;
 }
+
+li.section {
+  background-color: lightblue;
+}
+
+div.hoverable__content ul {
+  list-style-type: disc;
+  padding-inline-start: 30px
+}
+
+div.hoverable__content li > div {
+  white-space: pre-wrap;
+}
+
+.dataset.accordion .dataset.accordion-content.example {
+  background-color: white;
+}
